@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><title>Dashboard BI Keterjangkauan Harga Pangan Antarprovinsi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="stylesheet" href="style.css"></head><body><div class="w">
+<h1>Dashboard BI Keterjangkauan Harga Pangan Antarprovinsi</h1>
+<p class="sub">Monitoring dan peramalan harga lima komoditas pokok (bawang merah, bawang putih, beras, daging ayam, telur) di 34 provinsi Indonesia untuk mendukung ketahanan pangan. Indeks keterjangkauan membandingkan harga provinsi dengan median nasional, sehingga nilai di atas 1 berarti lebih mahal dari rata-rata nasional.</p>
+<div class="bar"><div><label for="ft">Tahun</label><select id="ft"></select></div><div><label for="fb">Bulan</label><select id="fb"></select></div><div><label>Komoditas</label><div class="chips" id="fk"></div></div></div>
+<div class="k" id="kpi"></div>
+<div class="g2"><div class="card"><h2>Peta Sebaran Indeks Gabungan</h2><div style="color:var(--mut);font-size:12.5px">Peta Indonesia per provinsi, warna menunjukkan kategori keterjangkauan. Batas wilayah disederhanakan.</div><canvas id="map" style="width:100%;height:auto;cursor:pointer;margin-top:6px" role="img" aria-label="Peta Indonesia per provinsi"></canvas><div class="leg" id="leg"></div><div id="tip" style="font-size:13px;min-height:20px;margin-top:6px"></div></div>
+<div class="card rk"><h2>Peringkat Provinsi</h2><div style="color:var(--mut);font-size:12.5px;margin-bottom:6px">Lima termurah dan lima termahal pada periode terpilih.</div><div id="rk"></div></div></div>
+<div class="card" style="margin-bottom:14px"><h2>Harga Rata-rata Nasional</h2><div style="color:var(--mut);font-size:12.5px">Komoditas terpilih ditebalkan; bulan dengan cakupan pasar rendah tetap ditampilkan.</div><div class="cv" style="height:300px"><canvas id="c1"></canvas></div></div>
+<h2 style="margin:22px 0 8px;font-size:24px">Tren dan Peramalan Harga Pangan</h2>
+<div class="k" id="kf"></div>
+<div class="g2b"><div class="card"><h2 id="tf"></h2><div class="cv"><canvas id="c2"></canvas></div><div class="note">Titik merah menandai bulan lonjakan (kenaikan bulanan melebihi rata-rata ditambah 2 simpangan baku). Garis putus-putus adalah perkiraan kasar forecast ± 1,645 × RMSE backtest, bukan interval prediksi statistik resmi.</div></div>
+<div class="card"><h2>Perbandingan Model</h2><div style="color:var(--mut);font-size:12.5px;margin-bottom:8px">Model terbaik dipilih dari MAPE backtest terendah.</div><div class="scr"><table id="tm"></table></div></div></div>
+<div class="g2b"><div class="card"><h2>Tren Disparitas Antarprovinsi</h2><div style="color:var(--mut);font-size:12.5px">Koefisien variasi harga antarprovinsi per tahun; makin tinggi, makin timpang.</div><div class="cv"><canvas id="c3"></canvas></div></div>
+<div class="card txt"><h2>Ringkasan Analitik</h2><div id="ins" style="margin-top:8px"></div></div></div>
+<div class="card"><h2>Indeks Keterjangkauan per Provinsi dan Komoditas</h2><div style="color:var(--mut);font-size:12.5px;margin-bottom:8px">Rata-rata indeks 2020 sampai 2026, diurutkan dari provinsi paling terjangkau.</div><div class="scr"><table id="tr"></table></div></div>
+<footer>Sumber: data harga pangan yang diolah dengan skema bintang (fact_harga, fact_indeks_gabungan, fact_forecast) dan dimensi waktu, wilayah, komoditas. Kategori indeks: Relatif Murah di bawah 0,90; Normal 0,90 sampai 1,10; Relatif Mahal 1,10 sampai 1,25; Sangat Mahal di atas 1,25.</footer>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script></body></html>

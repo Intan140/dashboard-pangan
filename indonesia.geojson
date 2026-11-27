@@ -1,0 +1,44 @@
+{
+  "type": "FeatureCollection",
+  "_note": "File ini adalah placeholder. Unduh GeoJSON Indonesia sesungguhnya dari salah satu sumber berikut, lalu ganti file ini:",
+  "_sources": [
+    "https://github.com/superpikar/indonesia-geojson (indonesia.geojson)",
+    "https://raw.githubusercontent.com/osm-id/osm-pbf/master/indonesia.geojson",
+    "https://geojson-maps.ash.ms/ → pilih Indonesia, simplify 50%"
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Indonesia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              95.0,
+              5.9
+            ],
+            [
+              141.0,
+              5.9
+            ],
+            [
+              141.0,
+              -11.1
+            ],
+            [
+              95.0,
+              -11.1
+            ],
+            [
+              95.0,
+              5.9
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
